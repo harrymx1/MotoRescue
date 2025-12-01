@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 
     id("com.google.gms.google-services")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -90,7 +91,7 @@ dependencies {
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-    // Note: Compiler Plugin (KSP) akan kita tambahkan nanti saat masuk materi Room
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // 6. Retrofit & GSON (Untuk API Rute Jalan)
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
