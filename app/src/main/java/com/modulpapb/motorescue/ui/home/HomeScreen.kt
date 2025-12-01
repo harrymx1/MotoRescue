@@ -30,7 +30,8 @@ import com.modulpapb.motorescue.model.listMontirPalsu
 
 @Composable
 fun HomeScreen(
-    onSosClick: () -> Unit // Callback saat tombol SOS ditekan
+    onSosClick: () -> Unit, // Callback saat tombol SOS ditekan
+    onHistoryClick: () -> Unit
 ) {
     // Lokasi Default (Monas)
     val monasLocation = LatLng(-6.175392, 106.827153)
@@ -73,6 +74,15 @@ fun HomeScreen(
                         icon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE) // Warna Oranye biar beda
                     )
                 }
+            }
+
+            Button(
+                onClick = { onHistoryClick() },
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(16.dp)
+            ) {
+                Text("Riwayat")
             }
 
             // 2. TOMBOL SOS (MOGOK)

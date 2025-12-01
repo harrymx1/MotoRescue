@@ -30,11 +30,8 @@ fun MotoRescueApp() {
         // Rute ke Halaman Home
         composable("home") {
             HomeScreen(
-                onSosClick = {
-                    // Nanti kita arahkan ke halaman Order
-                    // Untuk sekarang kita print log dulu atau toast kalau mau
-                    navController.navigate("order_form")
-                }
+                onSosClick = { navController.navigate("order_form") },
+                onHistoryClick = { navController.navigate("history") } // <--- Sambungkan
             )
         }
 
@@ -47,6 +44,11 @@ fun MotoRescueApp() {
                     navController.popBackStack()
                 }
             )
+        }
+
+        // Rute Riwayat
+        composable("history") {
+            com.modulpapb.motorescue.ui.history.HistoryScreen()
         }
     }
 }
